@@ -1,18 +1,18 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth";
 
-require("dotenv").config();
-
 const config = {
-  apiKey: process.env.API_KEY,
-  projectId: process.env.PROJECT_ID,
-  authDomain: process.env.DOMAIN,
+  apiKey: "AIzaSyBEctGsLYCLQXQF2Se4w5V_F1iELR2Z9I0",
+  projectId: "hackathon-cba40",
+  authDomain: "hackathon-cba40.firebaseapp.com",
 };
 
-(async () => {
+const initFirebase = () => {
   if (!firebase.apps.length) {
     firebase.initializeApp(config);
   }
-})();
+};
+
+initFirebase();
 
 export { firebase };

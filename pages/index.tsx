@@ -1,11 +1,20 @@
-import Head from "next/head";
+import { GetServerSideProps, NextPage } from "next";
+import nookies from "nookies";
+import { useAuth } from "../util/auth";
+import AuthComponent from "../util/firebase.config";
+import Link from "next/link";
 
-export default function Home() {
+const Index: NextPage = () => {
+  const { user, loading, logout } = useAuth();
+  if (loading) return null;
+  if (!user) return <AuthComponent />;
   return (
     <div className="home">
-      <Head>
-        <title>Covid Tracker | Welcome</title>
-      </Head>
+      <button type="button" onClick={logout} className="link">
+        Logout
+      </button>
     </div>
   );
-}
+};
+
+export default Index;
