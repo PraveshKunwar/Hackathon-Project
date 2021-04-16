@@ -27,7 +27,6 @@ const AuthProvider: React.FC = ({ children }) => {
 
       setUser(i);
       setLoading(false);
-      console.log(i);
     });
     return () => canceled();
   }, []);
