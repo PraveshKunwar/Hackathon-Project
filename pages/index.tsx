@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="home">
       <Head>
-        <title>Create Next App</title>
+        <title>Covid Tracker | Welcome</title>
       </Head>
     </div>
   );
