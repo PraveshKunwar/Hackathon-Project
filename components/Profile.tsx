@@ -36,7 +36,7 @@ const Profile: NextComponentType = () => {
       />
       <Div
         width="350px"
-        height="450px"
+        height="475px"
         margin="2rem"
         shadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}
       >
@@ -52,7 +52,15 @@ const Profile: NextComponentType = () => {
             </Badge>
             <b> Add yourself to vaccine recieved.</b>
           </Header>
-          <br></br> <br></br> <br></br> <br></br> <br></br>
+          <Div shadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}>
+            <Img
+              src="/images/main.png"
+              radius="50%"
+              width="128px"
+              height="128px"
+              margin="0 0 0 0 "
+            />
+          </Div>
           <Badge borderRadius="full" px="2" colorScheme="teal">
             ❓ What's this?
           </Badge>
@@ -94,7 +102,15 @@ const Profile: NextComponentType = () => {
             </Badge>
             <b> Add yourself to COVID-19 recieved.</b>
           </Header>
-          <br></br> <br></br> <br></br> <br></br> <br></br>
+          <Div shadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}>
+            <Img
+              src="/images/main2.png"
+              radius="50%"
+              width="128px"
+              height="128px"
+              margin="0 0 0 0"
+            />
+          </Div>
           <Badge borderRadius="full" px="2" colorScheme="teal">
             ❓ What's this?
           </Badge>
@@ -136,7 +152,15 @@ const Profile: NextComponentType = () => {
             </Badge>
             <b> Check vaccine recieved.</b>
           </Header>
-          <br></br> <br></br> <br></br> <br></br> <br></br>
+          <Div shadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}>
+            <Img
+              src="/images/main3.png"
+              radius="50%"
+              width="128px"
+              height="128px"
+              margin="0 0 0 0"
+            />
+          </Div>
           <Badge borderRadius="full" px="2" colorScheme="teal">
             ❓ What's this?
           </Badge>
@@ -179,7 +203,15 @@ const Profile: NextComponentType = () => {
             </Badge>
             <b> Check COVID-19 recieved.</b>
           </Header>
-          <br></br> <br></br> <br></br> <br></br> <br></br>
+          <Div shadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}>
+            <Img
+              src="/images/main4.png"
+              radius="50%"
+              width="128px"
+              height="128px"
+              margin="0 0 0 0"
+            />
+          </Div>
           <Badge borderRadius="full" px="2" colorScheme="teal">
             ❓ What's this?
           </Badge>
