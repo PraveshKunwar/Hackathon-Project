@@ -3,6 +3,7 @@ import { MoonIcon, SunIcon, CloseIcon } from "@chakra-ui/icons";
 import { useAuth } from "../util/auth";
 import firebase from "firebase/app";
 import { useState } from "react";
+
 const ThemeSelector: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { user, logout } = useAuth();

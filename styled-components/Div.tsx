@@ -11,6 +11,7 @@ interface DivProps {
   width?: string;
   height?: string;
   background?: string;
+  shadow?: string;
 }
 
 const Div = styled.div`
@@ -27,8 +28,8 @@ const Div = styled.div`
   justify-content: center;
 
   > div {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin: "30px";
+    box-shadow: ${(props: DivProps) => (props.shadow ? props.shadow : "none")};
+    margin: 25px;
     width: ${(props: DivProps) => (props.width ? props.width : "0")};
     height: ${(props: DivProps) => (props.height ? props.height : "0")};
     background: ${(props: DivProps) =>
