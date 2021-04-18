@@ -27,13 +27,16 @@ const Profile: NextComponentType = () => {
           {user.displayName ? user.displayName : "unknown."}.
         </b>
       </Header>
-      <Img
-        src={user.photoURL}
-        width="128px"
-        height="128px"
-        radius="50%"
-        margin="10px auto 0 auto"
-      />
+      {user.photoURL === null || undefined ? (
+        false
+      ) : (
+        <Img
+          src={user.photoURL}
+          width="128px"
+          height="128px"
+          margin="10px auto 0 auto"
+        />
+      )}
       <Div
         width="350px"
         height="475px"
