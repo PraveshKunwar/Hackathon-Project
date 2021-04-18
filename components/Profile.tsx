@@ -8,6 +8,7 @@ import Img from "../styled-components/Image";
 import Colors from "../util/colors";
 import { Badge, useColorMode } from "@chakra-ui/react";
 import Paragraph from "../styled-components/Paragraph";
+import Button from "../styled-components/Button";
 
 const Profile: NextComponentType = () => {
   const { user } = useAuth();
@@ -18,7 +19,7 @@ const Profile: NextComponentType = () => {
         color={colorMode === "light" ? "#9f7aea" : Colors.slate}
         fontSize="25px"
         margin="3rem"
-        fontFamily="Segoe UI"
+        fontFamily="Inter"
       >
         Welcome to Covid Tracker,
         <br></br>
@@ -72,6 +73,14 @@ const Profile: NextComponentType = () => {
           >
             Do your part in making the world a better place.
           </Paragraph>
+          <Button
+            radius="99px"
+            color={Colors.slate}
+            margin="20px auto 0 auto"
+            background="linear-gradient(to left, #b52660 50%, #112240 50%) right;"
+          >
+            <a>Get started</a>
+          </Button>
         </div>
         <div>
           <Header
@@ -106,6 +115,14 @@ const Profile: NextComponentType = () => {
           >
             Thanks for adding yourself! Hope you feel better!
           </Paragraph>
+          <Button
+            radius="99px"
+            color={Colors.slate}
+            margin="20px auto 0 auto"
+            background="linear-gradient(to left, #b52660 50%, #112240 50%) right;"
+          >
+            <a>Get started</a>
+          </Button>
         </div>
         <div>
           <Header
@@ -138,8 +155,17 @@ const Profile: NextComponentType = () => {
               colorMode === "light" ? Colors.lighter_navy : Colors.pink_main
             }
           >
-            Thanks for checking and stay safe!
+            Thanks for checking and stay safe! Good to check up on your friends
+            and family as well!
           </Paragraph>
+          <Button
+            radius="99px"
+            color={Colors.slate}
+            margin="20px auto 0 auto"
+            background="linear-gradient(to left, #b52660 50%, #112240 50%) right;"
+          >
+            <a>Get started</a>
+          </Button>
         </div>
         <div>
           <Header
@@ -172,9 +198,16 @@ const Profile: NextComponentType = () => {
               colorMode === "light" ? Colors.lighter_navy : Colors.pink_main
             }
           >
-            Stay calm! It will get better. Make sure to follow rules and stay up
-            to date on the latest news!
+            Make sure to follow rules and stay up to date on the latest news!
           </Paragraph>
+          <Button
+            radius="99px"
+            color={Colors.slate}
+            margin="20px auto 0 auto"
+            background="linear-gradient(to left, #b52660 50%, #112240 50%) right;"
+          >
+            <a>Get started</a>
+          </Button>
         </div>
       </Div>
     </div>
