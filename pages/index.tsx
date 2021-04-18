@@ -21,6 +21,22 @@ const Index: NextPage = () => {
           name="description"
           content="A covid tracker built with Next.JS."
         />
+        <link
+          rel="preload"
+          href="/fonts/Calibre-Regular.ttf"
+          as="font"
+          crossOrigin=""
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       {user ? <Profile /> : <AuthComponent />}
     </div>
