@@ -28,7 +28,12 @@ const Profile: NextComponentType = () => {
         </b>
       </Header>
       {user.photoURL === null || undefined ? (
-        false
+        <Img
+          src="/images/pfp.png"
+          width="128px"
+          height="128px"
+          margin="10px auto 0 auto"
+        />
       ) : (
         <Img
           src={user.photoURL}
