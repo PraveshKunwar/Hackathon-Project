@@ -9,6 +9,7 @@ import Colors from "../util/colors";
 import { Badge, useColorMode } from "@chakra-ui/react";
 import Paragraph from "../styled-components/Paragraph";
 import Button from "../styled-components/Button";
+import axios from "axios";
 
 const Profile: NextComponentType = () => {
   const { user } = useAuth();
@@ -252,6 +253,12 @@ const Profile: NextComponentType = () => {
       </Div>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = (ctx) => {
+  axios.get("/api/user").then((res) => {
+    console.log(res);
+  });
 };
 
 export default Profile;
