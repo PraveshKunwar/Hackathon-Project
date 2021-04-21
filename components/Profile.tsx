@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { GetServerSideProps, NextComponentType } from "next";
+import { GetServerSideProps, GetStaticProps, NextComponentType } from "next";
 import nookies from "nookies";
 import { useAuth } from "../util/auth";
 import Header from "../styled-components/Header";
@@ -11,9 +11,13 @@ import Paragraph from "../styled-components/Paragraph";
 import Button from "../styled-components/Button";
 import axios from "axios";
 
-const Profile: NextComponentType = () => {
+const Profile = () => {
   const { user } = useAuth();
   const { colorMode } = useColorMode();
+
+  useEffect(() => {
+    axios.get("/api/user").then((res) => console.log(res.data));
+  }, []);
   return (
     <div className="user">
       <Header
@@ -253,12 +257,6 @@ const Profile: NextComponentType = () => {
       </Div>
     </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = (ctx) => {
-  axios.get("/api/user").then((res) => {
-    console.log(res);
-  });
 };
 
 export default Profile;
