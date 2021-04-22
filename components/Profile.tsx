@@ -11,13 +11,10 @@ import Paragraph from "../styled-components/Paragraph";
 import Button from "../styled-components/Button";
 import axios from "axios";
 
-const Profile = () => {
+const Profile: NextComponentType = () => {
   const { user } = useAuth();
   const { colorMode } = useColorMode();
 
-  useEffect(() => {
-    axios.get("/api/user").then((res) => console.log(res.data));
-  }, []);
   return (
     <div className="user">
       <Header
