@@ -9,8 +9,8 @@ const AddVaccine: NextPage = () => {
   const { user } = useAuth();
 
   return (
-    <div className="checkvc">
-      {user ? <div className="checkvc">asdasdasd</div> : <Index />}
+    <div className="addvc">
+      {user ? <div className="addvc">asdasdasd</div> : <Index />}
     </div>
   );
 };

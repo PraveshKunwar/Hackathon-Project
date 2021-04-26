@@ -6,8 +6,8 @@ const AddCovid: NextPage = () => {
   const { user } = useAuth();
 
   return (
-    <div className="checkvc">
-      {user ? <div className="checkvc">asdasdasd</div> : <Index />}
+    <div className="addcovid">
+      {user ? <div className="addcovid">asdasdasd</div> : <Index />}
     </div>
   );
 };
