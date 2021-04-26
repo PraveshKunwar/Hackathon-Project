@@ -56,7 +56,7 @@ const CheckCovid: NextPage = () => {
                 <Th>Positive?</Th>
                 <Th>Reason</Th>
                 <Th>When</Th>
-                <Th>Where</Th>
+                <Th>Covid ID</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -65,12 +65,12 @@ const CheckCovid: NextPage = () => {
                     return (
                       <Tr key={doc.id}>
                         <Td>{doc.name}</Td>
-                        <Td>{`${doc.positive}`}</Td>
-                        <Td>{doc.reason}</Td>
+                        <Td>{doc.recieved === true ? "true" : "false  "}</Td>
+                        <Td>{`${doc.reason}`}</Td>
                         <Td>{`${moment
                           .unix(doc.when.seconds)
                           .format("MMMM Do YYYY, h:mm:ss a")}`}</Td>
-                        <Td>{`${doc.where}`}</Td>
+                        <Td>{`${doc.id}`}</Td>
                       </Tr>
                     );
                   })

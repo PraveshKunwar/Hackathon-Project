@@ -1,6 +1,5 @@
 import { NextPage } from "next";
 import { useAuth } from "../util/auth";
-import moment from "moment";
 import Index from ".";
 import "firebase/firestore";
 import { firebase } from "../util/firebase";
@@ -8,6 +7,7 @@ import Header from "../styled-components/Header";
 import { useColorMode } from "@chakra-ui/react";
 import Colors from "../util/colors";
 import { useState, useEffect } from "react";
+import Img from "../styled-components/Image";
 
 const AddVaccine: NextPage = () => {
   const { user } = useAuth();
@@ -44,7 +44,7 @@ const AddVaccine: NextPage = () => {
         name: name,
         recieved: recieved,
         when: firebase.firestore.Timestamp.fromDate(
-          new Date(moment(`${date} ${time}`).unix() * 1000)
+          new Date(`${date} ${time}`)
         ),
       });
     e.preventDefault();
@@ -60,11 +60,28 @@ const AddVaccine: NextPage = () => {
             margin="3rem"
             fontFamily="Inter"
           >
-            Add yourself to the official Covid 19 Database.
+            Add yourself to the official vaccine recieved database.
             <br></br>
             <b style={{ color: Colors.pink_main }}>
               {user.displayName ? user.displayName : "unknown."}.
             </b>
+            {user.photoURL === null || undefined ? (
+              <Img
+                src="/images/pfp.png"
+                width="128px"
+                height="128px"
+                margin="10px auto 0 auto"
+                radius="50%"
+              />
+            ) : (
+              <Img
+                src={user.photoURL}
+                width="128px"
+                height="128px"
+                margin="10px auto 0 auto"
+                radius="50%"
+              />
+            )}
             {db ? (
               <div>
                 <form onSubmit={handleSubmit}>

@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import Colors from "../util/colors";
 import moment from "moment";
+import geolib from "geolib";
 
 const CheckVaccine: NextPage = () => {
   const { user } = useAuth();
@@ -28,7 +29,9 @@ const CheckVaccine: NextPage = () => {
     const getData = async () => {
       const db = firebase.firestore();
       const data = await db.collection("vaccine").get();
-
+      data.docs.map((d) => {
+        console.log(d.data().where);
+      });
       setDocs(data.docs.map((doc) => doc.data()));
     };
     getData();
@@ -56,7 +59,7 @@ const CheckVaccine: NextPage = () => {
                 <Th>Name</Th>
                 <Th>Recieved?</Th>
                 <Th>When</Th>
-                <Th>Where</Th>
+                <Th>Covid ID</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -65,10 +68,11 @@ const CheckVaccine: NextPage = () => {
                     return (
                       <Tr key={doc.id}>
                         <Td>{doc.name}</Td>
+                        <Td>{`${doc.recieved}`}</Td>
                         <Td>{`${moment
                           .unix(doc.when.seconds)
                           .format("MMMM Do YYYY, h:mm:ss a")}`}</Td>
-                        <Td>{`${doc.where}`}</Td>
+                        <Td>{`${doc.id}`}</Td>
                       </Tr>
                     );
                   })
