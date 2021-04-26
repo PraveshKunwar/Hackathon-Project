@@ -4,7 +4,6 @@ import Index from ".";
 import { useState, useEffect } from "react";
 import "firebase/firestore";
 import { firebase } from "../util/firebase";
-import { useCollectionData } from "react-firebase-hooks/firestore";
 import Header from "../styled-components/Header";
 import {
   Table,
@@ -17,6 +16,7 @@ import {
   Td,
 } from "@chakra-ui/react";
 import Colors from "../util/colors";
+import moment from "moment";
 
 const CheckVaccine: NextPage = () => {
   const { user } = useAuth();
@@ -28,6 +28,7 @@ const CheckVaccine: NextPage = () => {
     const getData = async () => {
       const db = firebase.firestore();
       const data = await db.collection("vaccine").get();
+
       setDocs(data.docs.map((doc) => doc.data()));
     };
     getData();
@@ -64,7 +65,9 @@ const CheckVaccine: NextPage = () => {
                     return (
                       <Tr key={doc.id}>
                         <Td>{doc.name}</Td>
-                        <Td>{`${doc.when}`}</Td>
+                        <Td>{`${moment
+                          .unix(doc.when.seconds)
+                          .format("MMMM Do YYYY, h:mm:ss a")}`}</Td>
                         <Td>{`${doc.where}`}</Td>
                       </Tr>
                     );

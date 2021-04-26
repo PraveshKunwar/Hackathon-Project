@@ -4,7 +4,7 @@ import Index from ".";
 import { useState, useEffect } from "react";
 import "firebase/firestore";
 import { firebase } from "../util/firebase";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import moment from "moment";
 import Header from "../styled-components/Header";
 import {
   Table,
@@ -67,7 +67,9 @@ const CheckCovid: NextPage = () => {
                         <Td>{doc.name}</Td>
                         <Td>{`${doc.positive}`}</Td>
                         <Td>{doc.reason}</Td>
-                        <Td>{`${doc.when}`}</Td>
+                        <Td>{`${moment
+                          .unix(doc.when.seconds)
+                          .format("MMMM Do YYYY, h:mm:ss a")}`}</Td>
                         <Td>{`${doc.where}`}</Td>
                       </Tr>
                     );
