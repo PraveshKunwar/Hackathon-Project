@@ -78,7 +78,9 @@ const AuthComponent: React.FC = () => {
       <Paragraph
         fontSize="14px"
         color={
-          colorMode === "light" ? "#9f7aea" : Colors.dark_slate_border_purple
+          colorMode === "light"
+            ? Colors.red_main
+            : Colors.dark_slate_border_purple
         }
       >
         Welcome to Covid Tracker, a website built for users health. <br></br>
@@ -86,19 +88,13 @@ const AuthComponent: React.FC = () => {
         Here at Covid Tracker, we try to make sure that users are aware of local
         conditions, especially during this time. <br></br> We provide users with
         access to databases, allowing them to check for positive cases or
-        vaccine recieved near them within a 10 mile range, <br></br>or they can
-        add themselves to the database if they tested positive for COVID-19 or
-        recieved the vaccine!
+        vaccine recieved people, <br></br>or they can add themselves to the
+        database if they tested positive for COVID-19 or recieved the vaccine!
       </Paragraph>
 
       <br></br>
       <br></br>
-      <Img
-        src="/images/tests3.jpg"
-        margin="1rem auto 0 auto"
-        width="500"
-        height="500"
-      />
+
       <Paragraph
         margin="30px 0 0 0"
         fontSize="14px"

@@ -17,7 +17,6 @@ import {
 } from "@chakra-ui/react";
 import Colors from "../util/colors";
 import moment from "moment";
-import geolib from "geolib";
 
 const CheckVaccine: NextPage = () => {
   const { user } = useAuth();

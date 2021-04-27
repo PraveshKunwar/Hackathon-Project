@@ -4,12 +4,21 @@ import Index from ".";
 import "firebase/firestore";
 import { firebase } from "../util/firebase";
 import Header from "../styled-components/Header";
-import { useColorMode } from "@chakra-ui/react";
+import {
+  useColorMode,
+  FormControl,
+  FormLabel,
+  Input,
+  Select,
+  Button,
+} from "@chakra-ui/react";
 import Colors from "../util/colors";
 import { useState, useEffect } from "react";
 import Img from "../styled-components/Image";
+import { useRouter } from "next/dist/client/router";
 
 const AddCovid: NextPage = () => {
+  const router = useRouter();
   const { user } = useAuth();
   const { colorMode } = useColorMode();
   const [id, setId] = useState<number | string | null>(null);
@@ -51,6 +60,9 @@ const AddCovid: NextPage = () => {
         when: firebase.firestore.Timestamp.fromDate(
           new Date(`${date} ${time}`)
         ),
+      })
+      .then((c) => {
+        router.push("/thanks");
       });
     e.preventDefault();
   };
@@ -89,56 +101,83 @@ const AddCovid: NextPage = () => {
             )}
             {db ? (
               <div>
-                <form onSubmit={handleSubmit}>
-                  <input
+                <FormControl colorScheme="messenger" isRequired>
+                  <FormLabel>Enter Covid ID.</FormLabel>
+                  <Input
+                    isRequired
                     type="text"
                     name="id"
                     placeholder="Enter id..."
-                    style={{ background: "#000" }}
                     onChange={handleChangeID}
-                    required
+                    required={true}
                   />
-                  <input
+                  <FormLabel>Enter full name.</FormLabel>
+                  <Input
+                    isRequired
                     type="text"
                     name="name"
                     placeholder="Enter name..."
-                    style={{ background: "#000" }}
                     onChange={handleChangeName}
-                    required
+                    required={true}
                   />
-                  <select onChange={handleChangeRecieved} required>
-                    <option value="true">true</option>
-                    <option value="false">false</option>
-                  </select>
-                  <input
-                    type="time"
-                    id="when"
-                    name="appt"
-                    style={{ background: "#000" }}
-                    onChange={handleChangeTime}
-                    required
-                  />
-                  <input
+                  <FormLabel>How did you get COVID 19. (REQUIRED)</FormLabel>
+                  <Input
+                    isRequired
                     type="text"
                     id="reason"
                     name="reason"
-                    style={{ background: "#000" }}
                     onChange={handleChangeReason}
-                    placeholder="How did you get it? (REQUIRED)"
-                    required
+                    required={true}
                   />
-                  <input
+                  <FormLabel>
+                    When did you get covid? (Time) (At least, when did you start
+                    feeling sick?)
+                  </FormLabel>
+                  <Input
+                    isRequired
+                    type="time"
+                    id="when"
+                    name="when"
+                    onChange={handleChangeTime}
+                    required={true}
+                  />
+                  <FormLabel>
+                    When did you get COVID-19, or tested positive for it ?
+                    (Date)
+                  </FormLabel>
+                  <Input
+                    isRequired
                     type="date"
                     id="start"
-                    name="trip-start"
-                    min="2020-01-01"
-                    max="2021-05-31"
-                    style={{ background: "#000" }}
+                    name="date"
+                    min="2000-01-01"
+                    max="2030-05-31"
                     onChange={handleChangeDate}
-                    required
+                    required={true}
                   />
-                  <input type="submit" value="submit" />
-                </form>
+                  <FormLabel>
+                    Select if you still currently have COVID-19.
+                  </FormLabel>
+                  <Select
+                    onChange={handleChangeRecieved}
+                    required={true}
+                    isRequired
+                  >
+                    {" "}
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                  </Select>
+                  <Button
+                    mt={4}
+                    size="lg"
+                    colorScheme="teal"
+                    type="submit"
+                    value="submit"
+                    onClick={handleSubmit}
+                  >
+                    Submit
+                  </Button>
+                </FormControl>
               </div>
             ) : (
               "Not loaded "
