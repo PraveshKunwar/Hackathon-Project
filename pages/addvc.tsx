@@ -59,7 +59,7 @@ const AddVaccine: NextPage = () => {
       .then((c) => {
         router.push("/thanks");
       });
-      e.preventDefault();
+    e.preventDefault();
   };
 
   return (
@@ -115,7 +115,9 @@ const AddVaccine: NextPage = () => {
                     onChange={handleChangeName}
                     required={true}
                   />
-                  <FormLabel>When did you get the vaccine? (Time)</FormLabel>
+                  <FormLabel>
+                    When did you or when will you get the vaccine? (Time)
+                  </FormLabel>
                   <Input
                     isRequired
                     type="time"
@@ -124,7 +126,9 @@ const AddVaccine: NextPage = () => {
                     onChange={handleChangeTime}
                     required={true}
                   />
-                  <FormLabel>When did you get the vaccine? (Date)</FormLabel>
+                  <FormLabel>
+                    When did you or when will you get the vaccine? (Date)
+                  </FormLabel>
                   <Input
                     isRequired
                     type="date"
@@ -135,18 +139,15 @@ const AddVaccine: NextPage = () => {
                     onChange={handleChangeDate}
                     required={true}
                   />
-                  <FormLabel>
-                    Select if you have recieved the vaccine or not.
-                  </FormLabel>
-                  <Select
+                  <FormLabel>Have you recieved the vaccine?</FormLabel>
+                  <Input
+                    isRequired
+                    type="text"
+                    name="name"
+                    placeholder="Recieved it?"
                     onChange={handleChangeRecieved}
                     required={true}
-                    isRequired
-                  >
-                    {" "}
-                    <option value="true">true</option>
-                    <option value="false">false</option>
-                  </Select>
+                  />
                   <Button
                     mt={4}
                     size="lg"
