@@ -100,6 +100,22 @@ const AuthComponent: React.FC = () => {
             Click here to read our Terms and Condition.
           </a>
         </Link>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Link href="/support">
+          <a
+            style={{
+              color: colorMode === "light" ? Colors.pinkish_purp : Colors.gold,
+              fontSize: "16px",
+            }}
+          >
+            <b>
+              Want to help local organizations that are helping people
+              throughout these times? Click here.
+            </b>
+          </a>
+        </Link>
       </Paragraph>
 
       <br></br>
