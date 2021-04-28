@@ -196,8 +196,8 @@ const Profile: NextComponentType = () => {
                   colorMode === "light" ? Colors.lighter_navy : Colors.slate
                 }
               >
-                Want to see how many people have recieved COVID-19 vaccine
-                within a 10 mile range? Click the button below to get started.
+                Want to see how many people have recieved the vaccine? Click the
+                button below to get started.
               </Paragraph>{" "}
               <br></br>
               <Badge borderRadius="full" px="2" colorScheme="pink">
@@ -253,8 +253,8 @@ const Profile: NextComponentType = () => {
                   colorMode === "light" ? Colors.lighter_navy : Colors.slate
                 }
               >
-                Want to see how many people have recieved COVID-19 within a 10
-                mile range? Click the button below to get started.
+                Want to see how many people have recieved COVID-19. Click the
+                button below to get started.
               </Paragraph>{" "}
               <br></br>
               <Badge borderRadius="full" px="2" colorScheme="pink">
