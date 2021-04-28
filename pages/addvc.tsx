@@ -97,7 +97,7 @@ const AddVaccine: NextPage = () => {
             {db ? (
               <div className="form">
                 <FormControl colorScheme="messenger" isRequired>
-                  <FormLabel>Enter Covid ID.</FormLabel>
+                  <FormLabel>Enter Vaccine ID.</FormLabel>
                   <Input
                     isRequired
                     type="text"

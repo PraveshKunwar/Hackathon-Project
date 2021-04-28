@@ -121,7 +121,7 @@ const Profile: NextComponentType = () => {
                 <Badge borderRadius="full" px="2" colorScheme="teal">
                   ✅
                 </Badge>
-                <b> Add yourself to COVID-19 recieved.</b>
+                <b> Add yourself to COVID-19 positive.</b>
               </Header>
               <Div shadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}>
                 <Img

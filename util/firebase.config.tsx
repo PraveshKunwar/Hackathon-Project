@@ -7,6 +7,7 @@ import { useColorMode } from "@chakra-ui/react";
 import Colors from "../util/colors";
 import Img from "../styled-components/Image";
 import Paragraph from "../styled-components/Paragraph";
+import Link from "next/link";
 
 type flows = "popup" | "redirect";
 
@@ -64,7 +65,7 @@ const AuthComponent: React.FC = () => {
           fontFamily="Inter"
           fontSize="22px"
         >
-          The all in one covid tracker. With results.
+          The all in one covid tracker.
         </Header>
         <Img
           src="/images/tests.png"
@@ -87,9 +88,18 @@ const AuthComponent: React.FC = () => {
         <br></br>
         Here at Covid Tracker, we try to make sure that users are aware of local
         conditions, especially during this time. <br></br> We provide users with
-        access to databases, allowing them to check for positive cases or
-        vaccine recieved people, <br></br>or they can add themselves to the
-        database if they tested positive for COVID-19 or recieved the vaccine!
+        access to databases, allowing them to check for positive cases or people
+        who have recieved the vaccine, <br></br>or they can add themselves to
+        the database if they tested positive for COVID-19 or recieved the
+        vaccine!
+        <br></br>
+        <br></br>
+        <br></br>
+        <Link href="/toc">
+          <a style={{ color: Colors.red_main }}>
+            Click here to read our Terms and Condition.
+          </a>
+        </Link>
       </Paragraph>
 
       <br></br>

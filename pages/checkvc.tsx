@@ -76,7 +76,7 @@ const CheckVaccine: NextPage = () => {
                 <th>Name:</th>
                 <th>Number of doses:</th>
                 <th>When:</th>
-                <th>Covid ID:</th>
+                <th>Vaccine ID:</th>
               </tr>
             </thead>
             <tbody>
