@@ -70,11 +70,10 @@ const CheckCovid: NextPage = () => {
           >
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Positive?</th>
-                <th>Reason</th>
-                <th>When</th>
-                <th>Covid ID</th>
+                <th>Name:</th>
+                <th>Symptoms:</th>
+                <th>Reason:</th>
+                <th>When:</th>
               </tr>
             </thead>
             <tbody>
@@ -88,7 +87,6 @@ const CheckCovid: NextPage = () => {
                         <td>{`${moment
                           .unix(doc.when.seconds)
                           .format("MMMM Do YYYY, h:mm:ss a")}`}</td>
-                        <td>{`${doc.id}`}</td>
                       </tr>
                     );
                   })

@@ -38,7 +38,7 @@ const CheckVaccine: NextPage = () => {
             margin="3rem"
             fontFamily="Inter"
           >
-            The official Vaccine Recieved Database.
+            The Official Vaccine Recieved Database.
             <br></br>
             <b style={{ color: Colors.pink_main }}>
               {user.displayName ? user.displayName : "unknown."}.
@@ -73,10 +73,10 @@ const CheckVaccine: NextPage = () => {
           >
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Recieved?</th>
-                <th>When</th>
-                <th>Covid ID</th>
+                <th>Name:</th>
+                <th>Number of doses:</th>
+                <th>When:</th>
+                <th>Covid ID:</th>
               </tr>
             </thead>
             <tbody>

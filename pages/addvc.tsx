@@ -139,12 +139,12 @@ const AddVaccine: NextPage = () => {
                     onChange={handleChangeDate}
                     required={true}
                   />
-                  <FormLabel>Have you recieved the vaccine?</FormLabel>
+                  <FormLabel>How many doses have you recieved?</FormLabel>
                   <Input
                     isRequired
                     type="text"
                     name="name"
-                    placeholder="Recieved it?"
+                    placeholder="Dosage number?"
                     onChange={handleChangeRecieved}
                     required={true}
                   />

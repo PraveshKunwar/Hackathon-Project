@@ -21,7 +21,6 @@ const AddCovid: NextPage = () => {
   const router = useRouter();
   const { user } = useAuth();
   const { colorMode } = useColorMode();
-  const [id, setId] = useState<number | string | null>(null);
   const [name, setName] = useState<string | null>(null);
   const [recieved, setRecieved] = useState<string | any | null>(null);
   const [db, setDb] = useState<firebase.firestore.Firestore | null>(null);
@@ -43,9 +42,7 @@ const AddCovid: NextPage = () => {
   const handleChangeName = (event) => {
     setName(event.target.value);
   };
-  const handleChangeID = (event) => {
-    setId(event.target.value as number);
-  };
+
   const handleChangeReason = (event) => {
     setReason(event.target.value);
   };
@@ -53,7 +50,6 @@ const AddCovid: NextPage = () => {
     db.collection("covid19")
       .doc()
       .set({
-        id: id,
         name: name,
         recieved: recieved,
         reason: reason,
@@ -106,15 +102,6 @@ const AddCovid: NextPage = () => {
                   isRequired
                   style={{ fontFamily: "Inter" }}
                 >
-                  <FormLabel>Enter Covid ID.</FormLabel>
-                  <Input
-                    isRequired
-                    type="text"
-                    name="id"
-                    placeholder="Enter id..."
-                    onChange={handleChangeID}
-                    required={true}
-                  />
                   <FormLabel>Enter full name.</FormLabel>
                   <Input
                     isRequired
@@ -159,12 +146,12 @@ const AddCovid: NextPage = () => {
                     onChange={handleChangeDate}
                     required={true}
                   />
-                  <FormLabel>Do you still have COVID-19?</FormLabel>
+                  <FormLabel>List any symptoms:</FormLabel>
                   <Input
                     isRequired
                     type="text"
                     name="name"
-                    placeholder="Do you have it?"
+                    placeholder="Symptoms:"
                     onChange={handleChangeRecieved}
                     required={true}
                   />
