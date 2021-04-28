@@ -5,18 +5,11 @@ import { useState, useEffect } from "react";
 import "firebase/firestore";
 import { firebase } from "../util/firebase";
 import Header from "../styled-components/Header";
-import {
-  Table,
-  useColorMode,
-  TableCaption,
-  Tr,
-  Th,
-  Thead,
-  Tbody,
-  Td,
-} from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/react";
 import Colors from "../util/colors";
 import moment from "moment";
+import Img from "../styled-components/Image";
+import { Table } from "react-bootstrap";
 
 const CheckVaccine: NextPage = () => {
   const { user } = useAuth();
@@ -51,32 +44,57 @@ const CheckVaccine: NextPage = () => {
               {user.displayName ? user.displayName : "unknown."}.
             </b>
           </Header>
-          <Table variant="striped" colorScheme="facebook">
-            <TableCaption>The official Vaccine Recieved Database.</TableCaption>
-            <Thead>
-              <Tr>
-                <Th>Name</Th>
-                <Th>Recieved?</Th>
-                <Th>When</Th>
-                <Th>Covid ID</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
+          {user.photoURL === null || undefined ? (
+            <Img
+              src="/images/pfp.png"
+              width="128px"
+              height="128px"
+              margin="10px auto 0 auto"
+              radius="50%"
+            />
+          ) : (
+            <Img
+              src={user.photoURL}
+              width="128px"
+              height="128px"
+              margin="10px auto 0 auto"
+              radius="50%"
+            />
+          )}
+          <br></br>
+          <br></br>
+          <Table
+            responsive
+            variant={colorMode === "light" ? "light" : "dark"}
+            striped
+            bordered
+            hover
+            size="sm"
+          >
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Recieved?</th>
+                <th>When</th>
+                <th>Covid ID</th>
+              </tr>
+            </thead>
+            <tbody>
               {docs
                 ? docs.map((doc) => {
                     return (
-                      <Tr key={doc.id}>
-                        <Td>{doc.name}</Td>
-                        <Td>{`${doc.recieved}`}</Td>
-                        <Td>{`${moment
+                      <tr key={doc.id}>
+                        <td>{doc.name}</td>
+                        <td>{`${doc.recieved}`}</td>
+                        <td>{`${moment
                           .unix(doc.when.seconds)
-                          .format("MMMM Do YYYY, h:mm:ss a")}`}</Td>
-                        <Td>{`${doc.id}`}</Td>
-                      </Tr>
+                          .format("MMMM Do YYYY, h:mm:ss a")}`}</td>
+                        <td>{`${doc.id}`}</td>
+                      </tr>
                     );
                   })
                 : "Not loaded"}
-            </Tbody>
+            </tbody>
           </Table>
         </div>
       ) : (
