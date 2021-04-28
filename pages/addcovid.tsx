@@ -55,7 +55,7 @@ const AddCovid: NextPage = () => {
       .set({
         id: id,
         name: name,
-        recieved: recieved === null || true ? true : false,
+        recieved: recieved,
         reason: reason,
         when: firebase.firestore.Timestamp.fromDate(
           new Date(`${date} ${time}`)
@@ -100,8 +100,12 @@ const AddCovid: NextPage = () => {
               />
             )}
             {db ? (
-              <div>
-                <FormControl colorScheme="messenger" isRequired>
+              <div className="form" style={{ fontFamily: "Inter" }}>
+                <FormControl
+                  colorScheme="messenger"
+                  isRequired
+                  style={{ fontFamily: "Inter" }}
+                >
                   <FormLabel>Enter Covid ID.</FormLabel>
                   <Input
                     isRequired
@@ -155,18 +159,15 @@ const AddCovid: NextPage = () => {
                     onChange={handleChangeDate}
                     required={true}
                   />
-                  <FormLabel>
-                    Select if you still currently have COVID-19.
-                  </FormLabel>
-                  <Select
+                  <FormLabel>Do you still have COVID-19?</FormLabel>
+                  <Input
+                    isRequired
+                    type="text"
+                    name="name"
+                    placeholder="Do you have it?"
                     onChange={handleChangeRecieved}
                     required={true}
-                    isRequired
-                  >
-                    {" "}
-                    <option value="true">true</option>
-                    <option value="false">false</option>
-                  </Select>
+                  />
                   <Button
                     mt={4}
                     size="lg"
