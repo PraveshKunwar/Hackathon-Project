@@ -6,17 +6,10 @@ import "firebase/firestore";
 import { firebase } from "../util/firebase";
 import moment from "moment";
 import Header from "../styled-components/Header";
-import {
-  Table,
-  useColorMode,
-  TableCaption,
-  Tr,
-  Th,
-  Thead,
-  Tbody,
-  Td,
-} from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/react";
 import Colors from "../util/colors";
+import { Table } from "react-bootstrap";
+import Img from "../styled-components/Image";
 
 const CheckCovid: NextPage = () => {
   const { user } = useAuth();
@@ -48,34 +41,59 @@ const CheckCovid: NextPage = () => {
               {user.displayName ? user.displayName : "unknown."}.
             </b>
           </Header>
-          <Table variant="striped" colorScheme="facebook">
-            <TableCaption>The official Covid 19 Database.</TableCaption>
-            <Thead>
-              <Tr>
-                <Th>Name</Th>
-                <Th>Positive?</Th>
-                <Th>Reason</Th>
-                <Th>When</Th>
-                <Th>Covid ID</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
+          {user.photoURL === null || undefined ? (
+            <Img
+              src="/images/pfp.png"
+              width="128px"
+              height="128px"
+              margin="10px auto 0 auto"
+              radius="50%"
+            />
+          ) : (
+            <Img
+              src={user.photoURL}
+              width="128px"
+              height="128px"
+              margin="10px auto 0 auto"
+              radius="50%"
+            />
+          )}
+          <br></br>
+          <br></br>
+          <Table
+            responsive
+            variant={colorMode === "light" ? "light" : "dark"}
+            striped
+            bordered
+            hover
+            size="sm"
+          >
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Positive?</th>
+                <th>Reason</th>
+                <th>When</th>
+                <th>Covid ID</th>
+              </tr>
+            </thead>
+            <tbody>
               {docs
                 ? docs.map((doc) => {
                     return (
-                      <Tr key={doc.id}>
-                        <Td>{doc.name}</Td>
-                        <Td>{doc.recieved === true ? "true" : "false  "}</Td>
-                        <Td>{`${doc.reason}`}</Td>
-                        <Td>{`${moment
+                      <tr key={doc.id}>
+                        <td>{doc.name}</td>
+                        <td>{doc.recieved}</td>
+                        <td>{`${doc.reason}`}</td>
+                        <td>{`${moment
                           .unix(doc.when.seconds)
-                          .format("MMMM Do YYYY, h:mm:ss a")}`}</Td>
-                        <Td>{`${doc.id}`}</Td>
-                      </Tr>
+                          .format("MMMM Do YYYY, h:mm:ss a")}`}</td>
+                        <td>{`${doc.id}`}</td>
+                      </tr>
                     );
                   })
                 : "Not loaded"}
-            </Tbody>
+            </tbody>
           </Table>
         </div>
       ) : (
