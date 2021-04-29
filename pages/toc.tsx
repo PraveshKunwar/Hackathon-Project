@@ -18,7 +18,8 @@ const Terms: NextPage = () => {
         <br></br>
         <br></br>
         <b style={{ fontSize: "14px", color: Colors.red_main }}>
-          Your health information will be publicly displayed.
+          Certain aspects of your personal information will be publicly
+          displayed.
         </b>
         <br></br>
         In General Covid Tracker

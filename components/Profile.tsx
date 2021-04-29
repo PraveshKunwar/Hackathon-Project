@@ -234,7 +234,7 @@ const Profile: NextComponentType = () => {
                 <Badge borderRadius="full" px="2" colorScheme="teal">
                   ✅
                 </Badge>
-                <b> Check COVID-19 recieved.</b>
+                <b> Check COVID-19 Positive.</b>
               </Header>
               <Div shadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}>
                 <Img
@@ -253,8 +253,8 @@ const Profile: NextComponentType = () => {
                   colorMode === "light" ? Colors.lighter_navy : Colors.slate
                 }
               >
-                Want to see how many people have recieved COVID-19. Click the
-                button below to get started.
+                Want to see how many people have tested positive for COVID-19?
+                Click the button below to get started.
               </Paragraph>{" "}
               <br></br>
               <Badge borderRadius="full" px="2" colorScheme="pink">

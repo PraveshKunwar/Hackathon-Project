@@ -65,7 +65,7 @@ const AuthComponent: React.FC = () => {
           fontFamily="Inter"
           fontSize="22px"
         >
-          The all in one covid tracker.
+          The all in one Covid-19 Contact Tracing webpage.
         </Header>
         <Img
           src="/images/tests.png"
@@ -86,8 +86,8 @@ const AuthComponent: React.FC = () => {
       >
         Welcome to Covid Tracker, a website built for users health. <br></br>
         <br></br>
-        Here at Covid Tracker, we try to make sure that users are aware of local
-        conditions, especially during this time. <br></br> We provide users with
+        Here at Covid Tracker, we strive to provide users with services that
+        would help raise awareness of local conditions. <br></br>Users have
         access to databases, allowing them to check for positive cases or people
         who have recieved the vaccine, <br></br>or they can add themselves to
         the database if they tested positive for COVID-19 or recieved the

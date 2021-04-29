@@ -73,7 +73,7 @@ const AddCovid: NextPage = () => {
             margin="3rem"
             fontFamily="Inter"
           >
-            Add yourself to the official Covid 19 database.
+            Add yourself to the official Covid-19 database.
             <br></br>
             <b style={{ color: Colors.pink_main }}>
               {user.displayName ? user.displayName : "unknown."}.
