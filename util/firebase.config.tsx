@@ -30,9 +30,6 @@ const configs: ConfigTypes = {
       requiredDisplayName: false,
     },
     {
-      provider: firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    },
-    {
       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
     },
   ],
